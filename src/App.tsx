@@ -1,3 +1,5 @@
+import { Heading } from './components/Heading';
+
 import './styles/theme.css';
 import './styles/global.css';
 
@@ -6,7 +8,7 @@ export function App() {
 
   return (
     <div>
-      <h1>Hello, Chronos Pomodoro!</h1>
+      <Heading />
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi,
         iste laudantium. Aliquid commodi dicta fugiat doloremque ipsum
