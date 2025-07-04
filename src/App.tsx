@@ -12,23 +12,26 @@ import './styles/global.css';
 import { PlayCircleIcon } from 'lucide-react';
 
 import { Heading } from './components/Heading';
+import { useState } from 'react';
 
 export function App() {
-  let numero = 0;
+  // Que todos os componentes que usam "numero"
+  //saibam das mudanças em seu valor.
+  //Sempre que eu usar useState, não vou usar atribuição diretamente.
+  //const [numero, setNumero] = useState(() => {
+  // console.log('Lazy initialization');
+  // return 0;
+  //});
+  const [numero, setNumero] = useState(0);
 
   function handleClick() {
-    const span = document.getElementById('numero');
-    if (!span) return;
-    numero += 1;
-    span.innerText = numero.toString();
-    console.log(numero, Date.now());
+    // setNumero(prevState => prevState + 1); // Atualiza o estado com base no valor anterior
+    setNumero(1);
   }
 
   return (
     <>
-      <Heading>
-        Numero: <span id='numero'>{numero}</span>
-      </Heading>
+      <Heading>Numero: {numero}</Heading>
       <button onClick={handleClick}>Aumenta</button>
 
       <Container>
