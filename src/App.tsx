@@ -5,7 +5,7 @@ import { CountDown } from './components/CountDown';
 
 import './styles/theme.css';
 import './styles/global.css';
-import { DefaultInput } from './components/DefaultInput/indes';
+import { DefaultInput } from './components/DefaultInput';
 
 export function App() {
   return (
@@ -29,6 +29,7 @@ export function App() {
               labelText='Qualquer Coisa'
               id='meuInput'
               type='text'
+              placeholder='Digite algo...'
             />
           </div>
 
