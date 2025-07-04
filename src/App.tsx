@@ -7,14 +7,30 @@ import { DefaultInput } from './components/DefaultInput';
 import { DefaultButton } from './components/DefaultButton';
 import { Footer } from './components/Footer';
 
+import './styles/theme.css';
 import './styles/global.css';
 import { PlayCircleIcon } from 'lucide-react';
 
-import './styles/theme.css';
+import { Heading } from './components/Heading';
 
 export function App() {
+  let numero = 0;
+
+  function handleClick() {
+    const span = document.getElementById('numero');
+    if (!span) return;
+    numero += 1;
+    span.innerText = numero.toString();
+    console.log(numero, Date.now());
+  }
+
   return (
     <>
+      <Heading>
+        Numero: <span id='numero'>{numero}</span>
+      </Heading>
+      <button onClick={handleClick}>Aumenta</button>
+
       <Container>
         <Logo />
       </Container>
@@ -31,7 +47,7 @@ export function App() {
         <form className='form' action=''>
           <div className='formRow'>
             <DefaultInput
-              labelText='Qualquer Coisa'
+              labelText={numero.toString()}
               id='meuInput'
               type='text'
               placeholder='Digite algo...'
