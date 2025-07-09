@@ -1,5 +1,4 @@
 import { Home } from './pages/Home';
-
 import './styles/theme.css';
 import './styles/global.css';
 import { useState } from 'react';
@@ -22,7 +21,7 @@ export function App() {
   const [state, setstate] = useState(initialState);
   return (
     <>
-      <Home state={state} setState={setstate} />
+      <Home />
     </>
   );
 }
