@@ -65,6 +65,7 @@ export function MainForm() {
           //value={taskName}
           //onChange={e => setTaskName(e.target.value)}
           ref={taskNameInput}
+          disabled={!!state.activeTask}
         />
       </div>
 
@@ -78,7 +79,22 @@ export function MainForm() {
       )}
 
       <div className='formRow'>
-        <DefaultButton icon={<PlayCircleIcon />} />
+        {!state.activeTask ? (
+          <DefaultButton
+            aria-label='Iniciar nova Tarefa'
+            title='Iniciar nova Tarefa'
+            type='submit'
+            icon={<PlayCircleIcon />}
+          />
+        ) : (
+          <DefaultButton
+            aria-label='Interromper Tarefa Atual'
+            title='Interromper Tarefa Atual'
+            type='button'
+            color='red'
+            icon={<PlayCircleIcon />}
+          />
+        )}
       </div>
     </form>
   );
