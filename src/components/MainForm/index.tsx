@@ -8,6 +8,7 @@ import { DefaultButton } from '../DefaultButton';
 import { DefaultInput } from '../DefaultInput';
 import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 import { useRef } from 'react';
+import { Tips } from '../Tips';
 
 export function MainForm() {
   //const [taskName, setTaskName] = useState('');
@@ -64,7 +65,7 @@ export function MainForm() {
       </div>
 
       <div className='formRow'>
-        <p>Lorem ipsum dolor sit amet 25 min</p>
+        <Tips />
       </div>
       {state.currentCycle > 0 && (
         <div className='formRow'>
