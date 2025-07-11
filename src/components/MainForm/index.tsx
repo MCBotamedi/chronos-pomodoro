@@ -10,6 +10,7 @@ import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 import { useRef } from 'react';
 import { Tips } from '../Tips';
 
+
 export function MainForm() {
   //const [taskName, setTaskName] = useState('');
   const { state, dispatch } = useTaskContext();
