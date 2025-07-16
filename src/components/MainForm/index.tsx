@@ -9,7 +9,7 @@ import { DefaultInput } from '../DefaultInput';
 import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 import { useRef } from 'react';
 import { Tips } from '../Tips';
-
+import { showMessage } from '../../adapters/showMessage';
 
 export function MainForm() {
   //const [taskName, setTaskName] = useState('');
@@ -22,12 +22,13 @@ export function MainForm() {
 
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    showMessage.dissmiss();
 
     if (taskNameInput.current === null) return;
 
     const taskName = taskNameInput.current.value.trim();
     if (!taskName) {
-      alert('Digite uma tarefa');
+      showMessage.warn('Digite uma tarefa');
       return;
     }
 
@@ -44,9 +45,12 @@ export function MainForm() {
     //const secondsRemaining = newTask.duration * 60;
 
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
+    showMessage.success('Tarefa iniciada');
   }
 
   function handleInterruptTask() {
+    showMessage.dissmiss();
+    showMessage.error('Tarefa interrompida');
     dispatch({ type: TaskActionTypes.INTERRUPT_TASK });
   }
 
