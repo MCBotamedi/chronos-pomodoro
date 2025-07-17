@@ -1,9 +1,13 @@
-import type { TaskStateModel } from "../../models/TaskStateModel";
-import { formatSecondsToMinutes } from "../../utils/formatSecondsToMinutes";
-import { getNextCycle } from "../../utils/getNextCycle";
-import { TaskActionTypes, type TaskActionModel } from "./TaskActions";
+import { TaskStateModel } from '../../models/TaskStateModel';
+import { formatSecondsToMinutes } from '../../utils/formatSecondsToMinutes';
+import { getNextCycle } from '../../utils/getNextCycle';
+import { initialTaskState } from './initialTaskState';
+import { TaskActionModel, TaskActionTypes } from './taskActions';
 
-export function taskReducer(state:TaskStateModel, action: TaskActionModel): TaskStateModel{
+export function taskReducer(
+  state: TaskStateModel,
+  action: TaskActionModel,
+): TaskStateModel {
   switch (action.type) {
     case TaskActionTypes.START_TASK: {
       const newTask = action.payload;
@@ -48,7 +52,7 @@ export function taskReducer(state:TaskStateModel, action: TaskActionModel): Task
       };
     }
     case TaskActionTypes.RESET_STATE: {
-      return state;
+      return { ...initialTaskState };
     }
     case TaskActionTypes.COUNT_DOWN: {
       return {
@@ -59,7 +63,11 @@ export function taskReducer(state:TaskStateModel, action: TaskActionModel): Task
         ),
       };
     }
+    case TaskActionTypes.CHANGE_SETTINGS: {
+      return { ...state, config: { ...action.payload } };
+    }
   }
+
   // Sempre deve retornar o estado
   return state;
 }

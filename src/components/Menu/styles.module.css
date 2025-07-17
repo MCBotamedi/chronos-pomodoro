@@ -3,7 +3,6 @@
   align-items: center;
   justify-content: center;
   gap: 1.6rem;
-
 }
 
 .menuLink {
@@ -21,7 +20,8 @@
 .menuLink:hover {
   filter: brightness(80%);
 }
-.menuLink svg{
+
+.menuLink svg {
   width: 2.4rem;
   height: 2.4rem;
 }

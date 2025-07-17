@@ -22,7 +22,8 @@
 .logoLink:hover {
   filter: brightness(80%);
 }
-.logoLink svg{
+
+.logoLink svg {
   width: 6.4rem;
   height: 6.4rem;
 }

@@ -1,4 +1,4 @@
-.button{
+.button {
   border: none;
   background: var(--primary);
   color: var(--text-over-primary);
@@ -18,7 +18,7 @@
   height: 3.2rem;
 }
 
-.button:hover{
+.button:hover {
   filter: brightness(80%);
 }
 
@@ -31,4 +31,3 @@
   background: var(--error);
   color: var(--text-over-error);
 }
-

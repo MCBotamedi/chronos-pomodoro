@@ -1,16 +1,13 @@
-import { useTaskContext } from "../../contexts/TaskContext/usetaskContext";
-import { getNextCycle } from "../../utils/getNextCycle";
-import { getNextCycleType } from "../../utils/getNextCyclesType";
+import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
+import { getNextCycle } from '../../utils/getNextCycle';
+import { getNextCycleType } from '../../utils/getNextCycleType';
 
-export function Tips(){
-
+export function Tips() {
   const { state } = useTaskContext();
+  const nextCycle = getNextCycle(state.currentCycle);
+  const nextCyleType = getNextCycleType(nextCycle);
 
-  // ciclos
-    const nextCycle = getNextCycle(state.currentCycle);
-    const nextCycleType = getNextCycleType(nextCycle);
-
-  //Tips
+  // Tips
   const tipsForWhenActiveTask = {
     workTime: <span>Foque por {state.config.workTime}min</span>,
     shortBreakTime: <span>Descanse por {state.config.shortBreakTime}min</span>,
@@ -32,7 +29,7 @@ export function Tips(){
   return (
     <>
       {!!state.activeTask && tipsForWhenActiveTask[state.activeTask.type]}
-      {!state.activeTask && tipsForNoActiveTask[nextCycleType]}
+      {!state.activeTask && tipsForNoActiveTask[nextCyleType]}
     </>
   );
 }
